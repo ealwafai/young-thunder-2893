@@ -5,3 +5,10 @@
 <%= @movie.actors_by_age.each do |actor| %>
 <%= actor.name %>
 <% end %>
+
+<h3>Add an actor for this movie:</h3>
+<%= form_with url: "/movies/#{@movie.id}/roles", local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit 'Submit'%>
+<% end %>
